@@ -14,11 +14,14 @@ if($id){
     <h1><?=$pageTitle?></h1>
     <a class="btn gray" href="index.php">Voltar</a>
 </div>
-
+<?php if(isset($_GET['erro'])):?>
+    <p class="alert">Erro ao gravar. Verifique os dados.</p>
+    <?php endif;?>
     <section class="panel">
         <form method="post" action="salvar.php" class="grid">
             <input type="hidden" name="id" value="<?=$id?>">
-            <div class="field full"><label>Título *</label>
+            <div class="field full">
+                <label>Título *</label>
             <input name="titulo" required value="<?=htmlspecialchars($t['titulo'])?>"></div>
             <div class="field full">
                 <label>Descrição</label>
